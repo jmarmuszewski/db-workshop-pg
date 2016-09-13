@@ -1,0 +1,20 @@
+<h1> Products </h1>
+
+<table border="1">
+  <tr>
+    <th> id </th>
+    <th> name </th>
+    <th> description </th>
+    <th> available </th>
+    <th> price </th>
+</tr>
+<% @products.each do |product| %>
+  <tr>
+    <td><%= product.id %></td>
+    <td><%= product.name %></td>
+    <td><%= product.description %></td>
+    <td><%= product.available %></td>
+    <td><%= product.prices.last.price_pln if product.prices.last  %></td>
+  </tr>
+  <% end %>
+</table>

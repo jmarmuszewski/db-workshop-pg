@@ -1,0 +1,16 @@
+<h1> Banned emails </h1>
+
+<table border="1">
+  <tr>
+    <th> id </th>
+    <th> email </th>
+    <th> reason </th>
+</tr>
+<% @bans.each do |ban| %>
+  <tr>
+    <td><%= ban.id %></td>
+    <td><%= ban.email %></td>
+    <td><%= ban.reason %></td>
+  </tr>
+  <% end %>
+</table>
