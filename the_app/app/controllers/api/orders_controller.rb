@@ -19,7 +19,7 @@ class Api::OrdersController < ApplicationController
   end
 
   def create
-    @order = Session.new(params.require(:order).permit(:documnet_id, :finalized))
+    @order = Order.new(params.require(:order).permit(:document_name, :finalized))
     @order.user = User.find(params[:user_id])
     if @order.save
       render json: @order, status: 201, location: [:api, @order]

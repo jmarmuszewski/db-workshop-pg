@@ -11,7 +11,9 @@ class Api::BansController < ApplicationController
   end
 
   def create
-    @ban = Ban.new(params.require(:ban).permit(:email, :reason))
+    @ban = Ban.new(params.require(:ban).permit(:reason))
+    @ban.user = User.find(params[:user_id])
+    @ban.email = @ban.user.email
     if @ban.save
       render json: @ban, status: 201, location: [:api, @ban]
     else

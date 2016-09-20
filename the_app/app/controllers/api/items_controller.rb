@@ -10,7 +10,7 @@ class Api::ItemsController < ApplicationController
     else
       @price = Product.find(prams[:product]).prices.last
     end
-    @item = OrderList.new(params.require(:order_list).permit(:quantity, :discount))
+    @item = OrderList.new(params.require(:item).permit(:quantity, :discount))
     @item.price = @price
     @item.order = @order
 

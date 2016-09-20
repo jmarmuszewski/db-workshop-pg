@@ -14,7 +14,7 @@ default: &default
   pool: 5
   username: postgres
   password:
-  host: db
+  host: 192.168.1.6
 
 
 development:
