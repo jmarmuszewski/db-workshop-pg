@@ -1,15 +1,33 @@
 version: '2'
 services:
   db:
-    image: jmarmuszewski/pg-training:tmp_sessions
-    ports:
-      - "5432:5432"
+    image: jmarmuszewski/pg-training:tmp_prices
+#    ports:
+#      - "5432:5432"
   web:
     build: the_app
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - ./the_app:/myapp
+    tmpfs:
+      - /myapp/tmp
     ports:
       - "3000:3000"
     depends_on:
       - db
+  traffic:
+    build: the_traffic
+    volumes:
+      - ./the_traffic:/myapp
+      - stats:/data
+    depends_on:
+      - web
+      - dashing
+  dashing:
+    build: the_dashboard
+    ports:
+      - "8080:3030"
+    volumes:
+      - ./the_dashboard:/myapp
+      - stats:/data
+volumes:
+  stats:
