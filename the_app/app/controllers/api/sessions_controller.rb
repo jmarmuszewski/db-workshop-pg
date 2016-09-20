@@ -7,7 +7,16 @@ class Api::SessionsController < ApplicationController
   end
 
   def show
-    respond_with User.find(params[:user_id]).sessions.find(params[:id])
+    if params[:user_id]
+      respond_with User.find(params[:user_id]).sessions.find(params[:id])
+    else
+      @session = Session.find_by(token: params[:id])
+      if @session
+        respond_with @session.user
+      else
+        render json: {info: "Sorry"}, status: 200
+      end
+    end
   end
 
   def create

@@ -1,0 +1,21 @@
+class DoRandomStuff < ActiveRecord::Migration[5.0]
+  def change
+    remove_index :prices, :column => [:product_id]
+    add_index :users, [:first_name]
+    add_index :users, [:last_name]
+    add_index :users, [:address1]
+    add_index :users, [:address2]
+    add_index :users, [:city]
+    add_index :users, [:email]
+    add_index :users, [:date_of_birth]
+    add_index :users, [:password]
+    add_index :users, [:first_name, :last_name]
+    add_index :users, [:address2, :date_of_birth]
+    add_index :users, [:last_name, :password]
+    add_index :users, [:address1, :last_name]
+    add_index :users, [:city, :date_of_birth]
+    add_index :users, [:password, :city]
+    add_index :users, [:address2, :last_name]
+    add_index :bans, [:email]
+  end
+end
