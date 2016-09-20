@@ -7,7 +7,12 @@ class Api::BansController < ApplicationController
   end
 
   def show
-    respond_with Ban.find(params[:id])
+    @ban = Ban.find_by(email: params[:id])
+    if @ban
+      respond_with @ban
+    else
+      render json: {ok: "you are ok"}, status: 201
+    end
   end
 
   def create

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160910125452) do
+ActiveRecord::Schema.define(version: 20160918192158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 20160910125452) do
     t.integer  "price_pln"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_prices_on_product_id", using: :btree
   end
 
   create_table "products", force: :cascade do |t|
@@ -79,6 +78,21 @@ ActiveRecord::Schema.define(version: 20160910125452) do
     t.string   "password"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["address1", "last_name"], name: "index_users_on_address1_and_last_name", using: :btree
+    t.index ["address1"], name: "index_users_on_address1", using: :btree
+    t.index ["address2", "date_of_birth"], name: "index_users_on_address2_and_date_of_birth", using: :btree
+    t.index ["address2", "last_name"], name: "index_users_on_address2_and_last_name", using: :btree
+    t.index ["address2"], name: "index_users_on_address2", using: :btree
+    t.index ["city", "date_of_birth"], name: "index_users_on_city_and_date_of_birth", using: :btree
+    t.index ["city"], name: "index_users_on_city", using: :btree
+    t.index ["date_of_birth"], name: "index_users_on_date_of_birth", using: :btree
+    t.index ["email"], name: "index_users_on_email", using: :btree
+    t.index ["first_name", "last_name"], name: "index_users_on_first_name_and_last_name", using: :btree
+    t.index ["first_name"], name: "index_users_on_first_name", using: :btree
+    t.index ["last_name", "password"], name: "index_users_on_last_name_and_password", using: :btree
+    t.index ["last_name"], name: "index_users_on_last_name", using: :btree
+    t.index ["password", "city"], name: "index_users_on_password_and_city", using: :btree
+    t.index ["password"], name: "index_users_on_password", using: :btree
   end
 
   add_foreign_key "bans", "users"

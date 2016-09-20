@@ -27,6 +27,10 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show] do
       resources :items, only: [:index, :create]
     end
+    resources :sessions, only: [:show]
+    resources :emails, only: [:show]
+    resources :emails_a, only: [:index]
+    resources :emails_b, only: [:index]
   end
 end
 
