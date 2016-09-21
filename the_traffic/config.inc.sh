@@ -1,5 +1,6 @@
 URL="http://web:3000"
-timeout=10
+timeout=50
+max_threads=5
 
 ALL_USERS=200171
 ALL_PRODUCTS=103000
@@ -9,7 +10,7 @@ feature_logged_only=0
 #BROWSE CATALOG
 browse_catalog_skip=1
 browse_catalog_every=10
-browse_catalog_method=0
+browse_catalog_method=1
 
 #CREATE PRODUCT
 create_product_skip=0
@@ -26,7 +27,7 @@ feature_block_banned=1
 
 #SEND SPAM
 send_spam_skip=1
-send_spam_every=1
+send_spam_every=12
 send_spam_method=1
 
 #SHOW PRODUCT

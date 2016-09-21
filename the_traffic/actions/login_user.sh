@@ -12,8 +12,7 @@ email=$(get /api/users/$user | jq '.email' | sed -e 's:@:%40:g' -e 's:\.:%2E:g' 
 get /api/emails/$email &>/dev/null
 
 if [ ${feature_block_banned:-0} -eq 1 ]; then
-    get /api/bans/$email 
-    echo $email
+    get /api/bans/$email &>/dev/null
 fi
 
 token=$(rand_str)

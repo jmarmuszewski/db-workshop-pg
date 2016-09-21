@@ -7,7 +7,6 @@ source ${base_dir}/../config.inc.sh
 
 
 case ${browse_catalog_method:-1} in
-    0) echo "Not available" ;;
     1) get /api/products &>/dev/null ;;
     2) echo "Not available" ;;
 esac
