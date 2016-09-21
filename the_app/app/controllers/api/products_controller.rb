@@ -2,30 +2,14 @@ class Api::ProductsController < ApplicationController
   respond_to :json
   skip_before_filter :verify_authenticity_token
 
-  def index1
-    Product.all.order(id: :desc).select(:id, :name)
-  end
-
-  def index2
+  def index
     @products = []
-    Product.all.includes(:prices).select(:id, :available).each do |p|
+#    Product.all.includes(:prices).select(:id, :available).each do |p|
+    Product.all.select(:id, :available).each do |p|
       @products << p.attributes.merge({:price => p.prices.last})
     end
     @products
-  end
-
-  def index3
-
-  end
-
-  def index
-    @products = index2
-
     respond_with @products
-    #respond_with Product.all.limit(100)
-    #respond_with Product.includes(:prices)
-
-
   end
 
   def show
