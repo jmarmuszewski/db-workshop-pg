@@ -1,7 +1,7 @@
 version: '2'
 services:
   db:
-    image: jmarmuszewski/pg-training:tmp_prices
+    image: jmarmuszewski/pg-training:v1
 #    ports:
 #      - "5432:5432"
   web:
