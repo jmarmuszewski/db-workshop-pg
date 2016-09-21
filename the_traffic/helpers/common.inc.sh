@@ -39,5 +39,5 @@ function loop {
 }
 
 function rand_str {
-  echo "jsjfhskdfskj"
+    date +%s%N | sha256sum | base64 | head -c 32 ; echo
 }
