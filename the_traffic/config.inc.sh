@@ -1,6 +1,6 @@
 URL="http://web:3000"
 timeout=50
-max_threads=5
+max_threads=3
 
 ALL_USERS=200171
 ALL_PRODUCTS=103000
@@ -14,15 +14,15 @@ browse_catalog_method=1
 
 #CREATE PRODUCT
 create_product_skip=0
-create_product_every=5
+create_product_every=10
 
 #CREATE USER
 create_user_skip=0
-create_user_every=3
+create_user_every=6
 
 #LOGIN USER
 login_user_skip=0
-login_user_every=1
+login_user_every=3
 feature_block_banned=1
 
 #SEND SPAM
@@ -32,12 +32,12 @@ send_spam_method=1
 
 #SHOW PRODUCT
 show_product_skip=0
-show_product_every=3
+show_product_every=6
 feature_prices_history=1
 
 #UPDATE PRICES
 update_prices_skip=0
 update_prices_every=10
-update_prices=100
+update_prices=10
 
 
