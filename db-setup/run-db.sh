@@ -1,4 +1,4 @@
 #!/bin/bash
 
-docker build  -t pgjm .
-docker run -p 5432:5432 -it db-training:bans
+#docker build  -t pgjm .
+docker run -p 5432:5432 -it db-training:v1
